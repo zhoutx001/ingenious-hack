@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Ingenious hack",
+  "description": "This extension will analyze a page using voiceover",
+  "version": "0.0.1",
+"offline_enabled": false,
+
+  "icons": {
+    "128": "img/icon.png",
+    "64": "img/icon.png",
+    "32": "img/icon.png",
+    "16": "img/icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+       "128": "img/icon.png",
+       "64": "img/icon.png",
+       "32": "img/icon.png",
+       "16": "img/icon.png"
+     },
+
+   "default_title": "ingenious"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [ {
+    "js": [ "js/jquery.min.js", "js/annyang.min.js" ],
+    "matches": [ "<all_urls>" ],
+    "run_at": "document_end"
+  } ],
+  "permissions": [
+"tabs", "http://*/*", "https://*/*"
+  ],
+  "update_url": "https://clients2.google.com/service/update2/crx"
+}
